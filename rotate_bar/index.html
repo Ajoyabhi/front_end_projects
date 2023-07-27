@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Rotate_bar</title>
+</head>
+
+<body>
+    <div class="container show-nav">
+        <div class="circle-container">
+            <div class="circle">
+                <button id="close">
+                    <i class="fas fa-times"></i>
+                </button>
+                <button id="open">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>Amazing Articke</h1>
+            <small>Flopin Log</small>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, maxime perferendis sequi eum nihil, quas
+                nemo, obcaecati cumque non assumenda illum consequuntur nisi nulla accusantium. Aliquam minima mollitia
+                nihil soluta.
+            </p>
+            <h3>My dog</h3>
+            <div id="photoContainer"></div>
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+    <script>
+        const accessKey = 'QPjL_or0vccIzfpZ1RQSpzChDxl7jXvdgjIZfT0Zrm0';
+        const searchQuery = 'smalldog';
+        const apiUrl = `https://api.unsplash.com/search/photos?page=1&query=${searchQuery}&client_id=${accessKey}`;
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const photoContainer = document.getElementById('photoContainer');
+                photos = data.results[0]
+                const img = document.createElement('img');
+                img.src = photos.urls.regular;
+                img.alt = 'Unsplash Photo';
+                photoContainer.appendChild(img);
+
+            })
+            .catch(error => {
+                console.error('Error fetching photos:', error);
+            });
+    </script>
+
+</body>
+
+</html>

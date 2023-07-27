@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:ital,wght@0,400;1,300&family=Splash&family=Varela+Round&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Playfair Display', serif;
+    overflow-x: hidden;
+    background-color: #333;
+    margin: 0;
+}
+
+.container{
+    background-color: aliceblue;
+    transform-origin: top left;
+    transition: transform 0.5s linear;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 50px;
+    position: relative;
+}
+
+.container.show-nav{
+    transform: rotate(-20deg);
+}
+
+.circle-container{
+    position: fixed;
+    top: -100px;
+    left: -100px;
+    
+}
+
+.circle{
+    background-color: rgb(209, 38, 152);
+    height: 200px;
+    width: 200px;
+    position: relative;
+    border-radius: 50%;
+    z-index: 0;
+}
+.circle button{
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    background: transparent;
+    border: 0;
+    color: white;
+    height: 100px;
+    font-size: 26px;
+}
+
+.circle button:focus{
+    outline: none;
+}
+.circle button#open{
+    
+    left: 60%;
+}
+.circle button#close{
+    top: 80%;
+    left: 70%;
+    transform: rotate(90deg);
+    transform-origin: top left;
+}
+
+/* #close {
+    top: 65%;
+    left: 65%;
+    position: absolute;
+    background: transparent;
+    border: 0;
+    color: white;
+    height: 100px;
+    font-size: 26px;
+
+} */
+
+img {
+    max-width: 100%;
+}
